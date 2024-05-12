@@ -48,7 +48,8 @@ def get_channels():
 
     if response.status_code == 200:
         data = response.json()
-        return data, 200
+        channels = data["channels"]
+        return channels, 200
 
     else:
         return {"error" : "Unable to fetch channels"}, 500
