@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from api.routes.hello_world_routes import hello_world_routes
-from api.routes.farcaster_routes import farcaster_routes
+from api.routes.channel_routes import channel_routes
 from os import path
 # from api.models import *
 
@@ -20,7 +20,7 @@ def create_app():
     # engine = create_engine("sqlite+pysqlite:///:memory:", echo=True)
 
 
-    app.register_blueprint(farcaster_routes, url_prefix="/api/farcaster")
+    app.register_blueprint(channel_routes, url_prefix="/api/channels")
     app.register_blueprint(hello_world_routes, url_prefix="/api/hello")
 
     from api.models.channel_models import Channel, User

@@ -2,16 +2,12 @@ from flask import Blueprint, request, jsonify
 import requests
 import os
 
-farcaster_routes = Blueprint("farcaster_routes", __name__)
+channel_routes = Blueprint("channel_routes", __name__)
 
-
-@farcaster_routes.route("/ping", methods=["GET"])
-def ping():
-    return {"message": "pong"}, 200
 
 
 # create a path that fetch the trending channels 10 at a time
-@farcaster_routes.route('/trending_channels', methods=['GET'])
+@channel_routes.route('/trending', methods=['GET'])
 def get_trending_channels():
     """Get the trending channels from the farcaster database and save them to our database"""
 
@@ -32,7 +28,7 @@ def get_trending_channels():
 
 
 # create a path that will get all of the channels from farcaster max 50 at a time
-@farcaster_routes.route('/channels', methods=['GET'])
+@channel_routes.route('/', methods=['GET'])
 def get_channels():
     """Get all of the channels from the farcaster database"""
 
@@ -53,3 +49,24 @@ def get_channels():
 
     else:
         return {"error" : "Unable to fetch channels"}, 500
+
+
+@channel_routes.route('/<int:channel_id>', methods=['GET'])
+def get_channel_by_id(channel_id):
+    """Get a channel by its ID"""
+
+    URL = f'https://api.neynar.com/v2/farcaster/channel/search?q={channel_id}'
+    API_KEY = os.environ.get('NEYNAR_API_KEY')
+
+    headers = {
+        "accept": "application/json",
+        "api_key": f'{API_KEY}'
+    }
+
+    response = requests.get(URL, headers=headers)
+
+    if response.status_code == 200:
+        data = response.json()
+        return data, 200
+    else:
+        return {"error": "Unable to fetch channel"}, 500
