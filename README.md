@@ -13,6 +13,10 @@ This app fetches and will display a list of different channels from the Farcaste
 
 This is a hybrid Next.js + Python app that uses Next.js as the frontend and Flask as the API backend. 
 
+##Farcaster Channel Mockup 
+
+<img src="https://private-user-images.githubusercontent.com/115832336/329820974-d826458c-2e79-4a34-9a99-c97498da5a11.jpeg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTU0Nzk0NDQsIm5iZiI6MTcxNTQ3OTE0NCwicGF0aCI6Ii8xMTU4MzIzMzYvMzI5ODIwOTc0LWQ4MjY0NThjLTJlNzktNGEzNC05YTk5LWM5NzQ5OGRhNWExMS5qcGVnP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI0MDUxMiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNDA1MTJUMDE1OTA0WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9YjQyMTk5N2E5Yjk4NTUyMDE1MDdkNzJhOWVhYjE0M2IxYWM0MjE5MmFkN2RjNTRhMWEyYzc0YmRhM2M0NGU2ZCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmYWN0b3JfaWQ9MCZrZXlfaWQ9MCZyZXBvX2lkPTAifQ.Lr0GcQK69WUWneXc7OlSYkZeBcn-aXIBbCJvaQmOw9Q">
+
 ## How It Works
 
 The Python/Flask server is mapped into to Next.js app under `/api/`.
