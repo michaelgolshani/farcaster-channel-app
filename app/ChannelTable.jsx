@@ -42,7 +42,7 @@ const ChannelTable = () => {
             className="py-6  bg-purple-950 rounded-lg"
             key={channel.cast_count_1d}
           >
-            <div className="pl-4 text-2xl">{channel.name}</div>
+            <div className="pl-4 text-2xl">{channel.channel.name}</div>
           </li> // Assuming each channel has a unique ID and name
         ))}
       </ul>
