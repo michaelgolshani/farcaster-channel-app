@@ -1,17 +1,17 @@
 <p align="center">
   <a href="https://nextjs-flask-starter.vercel.app/">
     <img src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" height="96">
-    <h3 align="center">Next.js Flask Starter</h3>
+    <h3 align="center">Farcaster Channels</h3>
   </a>
 </p>
-
-<p align="center">Simple Next.js boilerplate that uses <a href="https://flask.palletsprojects.com/">Flask</a> as the API backend.</p>
 
 <br/>
 
 ## Introduction
 
-This is a hybrid Next.js + Python app that uses Next.js as the frontend and Flask as the API backend. One great use case of this is to write Next.js apps that use Python AI libraries on the backend.
+This app fetches and will display a list of different channels from the Farcaster API, which is an "innovative, open-source, decentralized social network that sets itself apart from centralized social networks like Meta or X by giving users complete control over their data."
+
+This is a hybrid Next.js + Python app that uses Next.js as the frontend and Flask as the API backend. 
 
 ## How It Works
 
@@ -23,9 +23,6 @@ On localhost, the rewrite will be made to the `127.0.0.1:5328` port, which is wh
 
 In production, the Flask server is hosted as [Python serverless functions](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python) on Vercel.
 
-## Demo
-
-https://nextjs-flask-starter.vercel.app/
 
 ## Deploy Your Own
 
