@@ -11,7 +11,7 @@ const ChannelTable = () => {
     const fetchData = async () => {
       try {
         // const response = await fetch("/api/farcaster/trending_channels");
-        const response = await fetch('/api/hello')
+        const response = await fetch('/api/channels/trending')
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -19,6 +19,7 @@ const ChannelTable = () => {
         console.log("data", data)
         setData(data);
         setChannels(data.channels);
+        // setChannels(data)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
