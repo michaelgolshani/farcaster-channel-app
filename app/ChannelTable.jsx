@@ -10,11 +10,13 @@ const ChannelTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/farcaster/trending_channels");
+        // const response = await fetch("/api/farcaster/trending_channels");
+        const response = await fetch('/api/hello')
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
+        console.log("data", data)
         setData(data);
         setChannels(data.channels);
       } catch (error) {
