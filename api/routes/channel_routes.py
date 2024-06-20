@@ -40,10 +40,14 @@ def get_all_channels():
                 break
 
             # offset += limit  # Move to the next set of channels
+
         else:
             return jsonify({'error': 'Failed to fetch channels'}), response.status_code
 
-    return jsonify({'channels': all_channels})
+    # Sort the channels by follower count in descending order
+    sorted_channels = sorted(all_channels, key=lambda x: x['follower_count'], reverse=True)
+
+    return jsonify({'channels': sorted_channels})
 
 
 
