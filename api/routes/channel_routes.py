@@ -10,35 +10,36 @@ channel_routes = Blueprint("channel_routes", __name__)
 @channel_routes.route('/all', methods= ["GET"])
 def get_all_channels():
     limit = 100  # Maximum number of channels per request
-    offset = 0  # Start with the first set of channels
+    # offset = 0  # Start with the first set of channels
 
     API_KEY = os.environ.get("NEYNAR_API_KEY")
-    API_URL = "https://api.neynar.com/v2/farcaster/channel/list"
+    API_URL = f"https://api.neynar.com/v2/farcaster/channel/list?limit={limit}"
 
     all_channels = []
 
     while True:
-        params = {
-            'limit': limit,
-            'offset': offset
-        }
+        # params = {
+        #     'limit': limit,
+        #     'offset': offset
+        # }
 
         headers = {
             'accept': 'application/json',
             'api_key': API_KEY
         }
 
-        response = requests.get(API_URL, params=params, headers=headers, timeout=5)
+        # response = requests.get(API_URL, params=params, headers=headers, timeout=5)
+        response = requests.get(API_URL, headers=headers, timeout=5)
 
         if response.status_code == 200:
             channels_data = response.json().get('channels', [])
             all_channels.extend(channels_data)
 
             # If the number of channels fetched is less than the limit, we've reached the end
-            if len(channels_data) < limit:
+            if len(channels_data) <= limit:
                 break
 
-            offset += limit  # Move to the next set of channels
+            # offset += limit  # Move to the next set of channels
         else:
             return jsonify({'error': 'Failed to fetch channels'}), response.status_code
 
